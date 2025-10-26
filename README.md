@@ -1,5 +1,7 @@
 # Personal Assistant
 
+Last updated: 2025-10-26
+
 A TypeScript-based personal assistant built with LangChain and OpenAI, featuring modular architecture and comprehensive unit testing.
 
 ## Description
@@ -34,6 +36,7 @@ personal-asistant/
 ## Setup
 
 ### Prerequisites
+
 - Node.js (v18 or higher)
 - npm
 - OpenAI API key
@@ -42,11 +45,13 @@ personal-asistant/
 
 1. Clone the repository
 2. Install dependencies:
+
    ```bash
    npm install
    ```
 
 3. Create environment file:
+
    ```bash
    cp env.example .env
    ```
@@ -68,22 +73,27 @@ personal-asistant/
 ## Deployment
 
 ### Build for Production
+
 ```bash
 npm run build
 ```
 
 ### Run Production Build
+
 ```bash
 npm start
 ```
 
 ### Environment Variables
+
 Ensure the following environment variables are set in production:
+
 - `OPENAI_API_KEY`: Your OpenAI API key
 
 ## Status
 
 ✅ **Core Features**
+
 - OpenAI GPT-4o integration
 - Modular function architecture
 - Comprehensive unit testing
@@ -91,11 +101,13 @@ Ensure the following environment variables are set in production:
 - Environment variable management
 
 ✅ **Testing**
+
 - 7 unit tests covering all exported functions
 - Mocked external dependencies
 - 100% test coverage for core logic
 
 ✅ **Code Quality**
+
 - TypeScript strict configuration
 - ESLint-ready structure
 - Modular, testable functions

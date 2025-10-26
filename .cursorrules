@@ -42,6 +42,8 @@ OUTPUT
 HUSKY
 
 - Use Husky for git hooks in every project.
-- pre-commit: run "npm run format:check" then "npm run lint" (no autofix).
-- pre-push: run "npm test" (unit tests only by default).
+- Editor: enable format-on-save in Cursor.
+- Pre-commit: run lint-staged to fix changed files only (eslint --fix + prettier --write).
+- Pre-push: run tests only (npm test).
+- CI (GitHub Actions): check only, do not fix → run `prettier --check .` and `eslint . --max-warnings=0`.
 - Do NOT install hooks on CI: guard prepare script (e.g. `[ -n "$CI" ] || husky`) or set `HUSKY=0` in CI.
