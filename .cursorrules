@@ -1,32 +1,47 @@
 GENERAL (GLOBAL)
+
 - TypeScript only; "strict", "noImplicitAny", "strictNullChecks".
 - Scoped edits only; output unified diffs.
 - Plan (1–3 steps) before multi-file changes.
 
 TESTING
+
 - Unit tests for any new/changed logic.
 - Small, pure, deterministic functions.
 - DI/mocks for I/O. Backend: Vitest+supertest; Frontend: RTL+msw.
 
 ARCH
+
 - /client (React), /api (Node), /core (shared).
 - routes → handlers → services → repositories → schemas. No DB in routes.
 - Env via `env.ts` (Zod). No `process.env` elsewhere.
 
 AI / LANGCHAIN
+
 - `core/tools` are pure; side effects isolated.
 - Chains/tools have Zod IO schemas; unit tests with fake providers.
 - Keep tiny offline evals (golden chats).
 
 DOCS
-- Auto-maintain `README.md` (name, desc, stack, structure, setup, deploy, status).
-- TSDoc on all exported functions.
+
+- Automatically maintain README.md (name, description, stack, structure, setup, deploy, status).
+- Do NOT add TSDoc comments or docblocks in code.
 
 SECURITY
+
 - Don't log secrets/PII. Validate config on boot. Use secrets manager.
 
 DX
+
 - Lean deps; no circular imports. Small PRs (<300 LOC). Conventional Commits.
 
 OUTPUT
+
 - Return diffs only. No full-file rewrites unless asked.
+
+HUSKY
+
+- Use Husky for git hooks in every project.
+- pre-commit: run "npm run format:check" then "npm run lint" (no autofix).
+- pre-push: run "npm test" (unit tests only by default).
+- Do NOT install hooks on CI: guard prepare script (e.g. `[ -n "$CI" ] || husky`) or set `HUSKY=0` in CI.
