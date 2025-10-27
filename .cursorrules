@@ -26,6 +26,7 @@ DOCS
 
 - Automatically maintain README.md (name, description, stack, structure, setup, deploy, status).
 - Do NOT add TSDoc comments or docblocks in code.
+- Do NOT write any comments in code (no inline or block comments).
 
 SECURITY
 
